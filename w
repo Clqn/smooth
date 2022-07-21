@@ -54,7 +54,7 @@ function getClosestPlrToMouse()
                 end
     
                 if (ms.Hit.Position - v.Character.PrimaryPart.Position).magnitude < distance and checkPassed then
-                    if canSee(v.Character.Head, v.Character) and v.Character.Humanoid.Health > 0 then
+                    if canSee(v.Character.HumanoidRootPart, v.Character) and v.Character.Humanoid.Health > 0 then
                         closest = v
                         distance = (ms.Hit.Position - v.Character.PrimaryPart.Position).magnitude
                     end
@@ -95,7 +95,7 @@ while task.wait() do
         local targ = getClosestPlrToMouse()
         if targ then
             local currentcf = workspace.CurrentCamera.CFrame
-            workspace.CurrentCamera.CFrame = currentcf:Lerp(CFrame.new(currentcf.Position, targ.Character.Head.Position), _G.AimbotEasing)
+            workspace.CurrentCamera.CFrame = currentcf:Lerp(CFrame.new(currentcf.Position, targ.Character.HumanoidRootPart.Position), _G.AimbotEasing)
         end
     end
 end
